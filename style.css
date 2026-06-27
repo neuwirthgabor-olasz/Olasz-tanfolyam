@@ -149,3 +149,37 @@ footer{
     cursor:pointer;
     margin-left:12px;
 }
+.flashcard{
+  background:#ffffff;
+  color:#222;
+  border-radius:20px;
+  padding:35px 20px;
+  text-align:center;
+  font-size:28px;
+  font-weight:bold;
+  box-shadow:0 6px 20px rgba(0,0,0,.15);
+  margin:20px 0;
+  cursor:pointer;
+}
+
+.flashcard small{
+  display:block;
+  font-size:16px;
+  margin-top:12px;
+  color:#666;
+}
+
+.dark .flashcard{
+  background:#1f1f1f;
+  color:white;
+}
+
+.speakBtn{
+  background:#009246;
+  color:white;
+  border:none;
+  border-radius:12px;
+  padding:12px 18px;
+  font-weight:bold;
+  font-size:16px;
+}
