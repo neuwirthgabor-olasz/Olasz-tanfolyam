@@ -1,32 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const button = document.getElementById("themeBtn");
+  if (!button) return;
 
-    const button = document.getElementById("themeBtn");
+  function setTheme(theme) {
+    document.body.classList.remove("light", "dark");
+    document.body.classList.add(theme);
+    localStorage.setItem("theme", theme);
+    button.textContent = theme === "dark" ? "☀️" : "🌙";
+  }
 
-    const dark = localStorage.getItem("theme") !== "light";
+  const savedTheme = localStorage.getItem("theme") || "dark";
+  setTheme(savedTheme);
 
-    if (!dark) {
-        document.body.classList.add("light");
-        button.textContent = "🌙";
-    } else {
-        button.textContent = "☀️";
-    }
-
-    button.addEventListener("click", function () {
-
-        document.body.classList.toggle("light");
-
-        if (document.body.classList.contains("light")) {
-
-            localStorage.setItem("theme","light");
-            button.textContent="🌙";
-
-        } else {
-
-            localStorage.setItem("theme","dark");
-            button.textContent="☀️";
-
-        }
-
-    });
-
+  button.addEventListener("click", function () {
+    const currentIsDark = document.body.classList.contains("dark");
+    setTheme(currentIsDark ? "light" : "dark");
+  });
 });
