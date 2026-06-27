@@ -133,3 +133,11 @@ footer{
 .dark header{
     filter:brightness(.85);
 }
+#darkModeBtn{
+  background:none;
+  border:none;
+  color:white;
+  font-size:20px;
+  font-weight:bold;
+  cursor:pointer;
+}
