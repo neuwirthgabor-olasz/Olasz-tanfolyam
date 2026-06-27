@@ -28,8 +28,17 @@ function flipCard(){
 }
 
 function speakItalian(){
-  const text = "Ciao";
-  const utterance = new SpeechSynthesisUtterance(text);
+  if (!window.speechSynthesis) {
+    alert("A böngésződ nem támogatja a felolvasást.");
+    return;
+  }
+
+  speechSynthesis.cancel();
+
+  const utterance = new SpeechSynthesisUtterance("Ciao");
   utterance.lang = "it-IT";
+  utterance.rate = 0.8;
+  utterance.pitch = 1;
+
   speechSynthesis.speak(utterance);
 }
