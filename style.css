@@ -116,3 +116,20 @@ footer{
   padding:25px;
   color:#666;
 }
+.dark{
+    background:#121212;
+    color:white;
+}
+
+.dark .card{
+    background:#1f1f1f;
+    color:white;
+}
+
+.dark nav{
+    background:#000;
+}
+
+.dark header{
+    filter:brightness(.85);
+}
