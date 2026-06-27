@@ -12,3 +12,24 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+let flipped = false;
+
+function flipCard(){
+  const card = document.getElementById("flashcard");
+  if(!card) return;
+
+  if(flipped){
+    card.innerHTML = 'Ciao<small>Koppints a fordításhoz</small>';
+  } else {
+    card.innerHTML = 'Szia<small>Koppints vissza az olaszhoz</small>';
+  }
+
+  flipped = !flipped;
+}
+
+function speakItalian(){
+  const text = "Ciao";
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "it-IT";
+  speechSynthesis.speak(utterance);
+}
