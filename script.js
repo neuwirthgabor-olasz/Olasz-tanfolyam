@@ -1,44 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const button = document.getElementById("darkModeBtn");
 
-  if (localStorage.getItem("darkmode") === "true") {
-    document.body.classList.add("dark");
-  }
+    const button = document.getElementById("themeBtn");
 
-  if (button) {
+    const dark = localStorage.getItem("theme") !== "light";
+
+    if (!dark) {
+        document.body.classList.add("light");
+        button.textContent = "🌙";
+    } else {
+        button.textContent = "☀️";
+    }
+
     button.addEventListener("click", function () {
-      document.body.classList.toggle("dark");
-      localStorage.setItem("darkmode", document.body.classList.contains("dark"));
+
+        document.body.classList.toggle("light");
+
+        if (document.body.classList.contains("light")) {
+
+            localStorage.setItem("theme","light");
+            button.textContent="🌙";
+
+        } else {
+
+            localStorage.setItem("theme","dark");
+            button.textContent="☀️";
+
+        }
+
     });
-  }
+
 });
-let flipped = false;
-
-function flipCard(){
-  const card = document.getElementById("flashcard");
-  if(!card) return;
-
-  if(flipped){
-    card.innerHTML = 'Ciao<small>Koppints a fordításhoz</small>';
-  } else {
-    card.innerHTML = 'Szia<small>Koppints vissza az olaszhoz</small>';
-  }
-
-  flipped = !flipped;
-}
-
-function speakItalian(){
-  if (!window.speechSynthesis) {
-    alert("A böngésződ nem támogatja a felolvasást.");
-    return;
-  }
-
-  speechSynthesis.cancel();
-
-  const utterance = new SpeechSynthesisUtterance("Ciao");
-  utterance.lang = "it-IT";
-  utterance.rate = 0.8;
-  utterance.pitch = 1;
-
-  speechSynthesis.speak(utterance);
-}
