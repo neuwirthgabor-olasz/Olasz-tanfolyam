@@ -7,12 +7,13 @@
 <style>
 body{font-family:Arial,sans-serif;margin:0;background:#f7f7f7;color:#222}
 header{background:linear-gradient(90deg,#009246,#fff,#ce2b37);padding:35px 20px;text-align:center}
-header h1{margin:0;font-size:32px}
+nav{background:#222;padding:12px;text-align:center;position:sticky;top:0}
+nav a{color:white;text-decoration:none;margin:8px;font-weight:bold}
 main{max-width:900px;margin:auto;padding:20px}
 .card{background:white;border-radius:16px;padding:22px;margin:18px 0;box-shadow:0 2px 10px rgba(0,0,0,.1)}
 h2{color:#009246}
-.button{display:inline-block;background:#ce2b37;color:white;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:bold}
 .word{background:#f0f0f0;padding:8px;border-radius:8px;margin:6px 0}
+.button{display:inline-block;background:#ce2b37;color:white;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:10px}
 </style>
 </head>
 <body>
@@ -22,16 +23,17 @@ h2{color:#009246}
 <p>Saját olasz nyelvtanuló oldal • Anki • Kiejtés • Gyakorlás</p>
 </header>
 
+<nav>
+<a href="#lecke">📚 Lecke</a>
+<a href="#anki">🧠 Anki</a>
+<a href="#kiejtes">🎧 Kiejtés</a>
+<a href="#haladas">📈 Haladás</a>
+</nav>
+
 <main>
 
-<div class="card">
-<h2>Mai lecke: 1. lecke</h2>
-<p><b>Téma:</b> Köszönések és bemutatkozás</p>
-<p>Ma megtanulunk köszönni, bemutatkozni, és egyszerűen válaszolni arra, hogy hogy vagy.</p>
-</div>
-
-<div class="card">
-<h2>Első szavak</h2>
+<div class="card" id="lecke">
+<h2>1. lecke – Köszönések és bemutatkozás</h2>
 <div class="word"><b>Ciao</b> – Szia – <i>csáó</i></div>
 <div class="word"><b>Buongiorno</b> – Jó napot – <i>buon-dzsor-no</i></div>
 <div class="word"><b>Grazie</b> – Köszönöm – <i>grá-ci-e</i></div>
@@ -46,14 +48,21 @@ h2{color:#009246}
 <p><b>A:</b> Bene, grazie.</p>
 </div>
 
-<div class="card">
-<h2>Gyakorlás</h2>
+<div class="card" id="anki">
+<h2>🧠 Anki-kártyák</h2>
+<p>Itt lesznek a letölthető Anki-anyagok.</p>
+<p><b>1. lecke:</b> Köszönések és bemutatkozás</p>
+<a class="button" href="#">Anki letöltés hamarosan</a>
+</div>
+
+<div class="card" id="kiejtes">
+<h2>🎧 Kiejtés</h2>
 <p>Mondd ki hangosan háromszor:</p>
 <p><b>Ciao! Mi chiamo Gábor. Sto bene, grazie.</b></p>
 </div>
 
-<div class="card">
-<h2>Haladás</h2>
+<div class="card" id="haladas">
+<h2>📈 Haladás</h2>
 <p>✅ 1 / 90 lecke elkezdve</p>
 <p>🎯 Cél: használható társalgási olasz 90 nap alatt.</p>
 </div>
