@@ -1,80 +1,63 @@
 import { useState } from "react";
 import "./App.css";
 
+import Home from "./pages/Home";
+import Lesson from "./pages/Lesson";
+import { lessons } from "./data/lessons";
+
 function App() {
-  const [lessonStarted, setLessonStarted] = useState(false);
+  const [page, setPage] = useState("home");
+    const [currentWord, setCurrentWord] = useState(0);
 
-    const speak = (text) => {
-        const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = "it-IT";
-                utterance.rate = 0.85;
-                    speechSynthesis.speak(utterance);
-                      };
+      const lesson = lessons[0];
 
-                        if (lessonStarted) {
-                            return (
-                                  <div className="app">
-                                          <section className="card">
-                                                    <h1>🇮🇹 1. lecke</h1>
-                                                              <h2>Ciao</h2>
-                                                                        <p>Szia</p>
+        const speak = (text) => {
+            const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = "it-IT";
+                    utterance.rate = 0.85;
+                        speechSynthesis.speak(utterance);
+                          };
 
-                                                                                  <button onClick={() => speak("Ciao")}>🔊 Kiejtés</button>
-                                                                                            <br /><br />
-                                                                                                      <button onClick={() => setLessonStarted(false)}>⬅ Vissza</button>
-                                                                                                              </section>
-                                                                                                                    </div>
-                                                                                                                        );
-                                                                                                                          }
+                            const startLesson = () => {
+                                setCurrentWord(0);
+                                    setPage("lesson");
+                                      };
 
-                                                                                                                            return (
-                                                                                                                                <div className="app">
-                                                                                                                                      <header className="hero">
-                                                                                                                                              <div className="badge">🇮🇹 90 napos olasz tanfolyam</div>
-                                                                                                                                                      <h1>Gábor Olasz Akadémia</h1>
-                                                                                                                                                              <p>Tanulj olaszul naponta rövid, gyakorlati leckékkel.</p>
-                                                                                                                                                                      <button className="primary" onClick={() => setLessonStarted(true)}>
-                                                                                                                                                                                ▶ Mai lecke indítása
-                                                                                                                                                                                        </button>
-                                                                                                                                                                                              </header>
+                                        if (page === "lesson") {
+                                            return (
+                                                  <div className="app">
+                                                          <Lesson
+                                                                    lesson={lesson}
+                                                                              currentWord={currentWord}
+                                                                                        onSpeak={speak}
+                                                                                                />
 
-                                                                                                                                                                                                    <main className="dashboard">
-                                                                                                                                                                                                            <section className="card big">
-                                                                                                                                                                                                                      <h2>🔥 Mai lecke</h2>
-                                                                                                                                                                                                                                <p className="muted">1. lecke – Köszönések és bemutatkozás</p>
+                                                                                                        <div className="card">
+                                                                                                                  <button
+                                                                                                                              className="primary"
+                                                                                                                                          onClick={() =>
+                                                                                                                                                        setCurrentWord((prev) =>
+                                                                                                                                                                        prev < lesson.words.length - 1 ? prev + 1 : prev
+                                                                                                                                                                                      )
+                                                                                                                                                                                                  }
+                                                                                                                                                                                                            >
+                                                                                                                                                                                                                        Következő ➡
+                                                                                                                                                                                                                                  </button>
 
-                                                                                                                                                                                                                                          <div className="word">
-                                                                                                                                                                                                                                                      <span>
-                                                                                                                                                                                                                                                                    <b>Ciao</b>
-                                                                                                                                                                                                                                                                                  <small>Szia • csáó</small>
-                                                                                                                                                                                                                                                                                              </span>
-                                                                                                                                                                                                                                                                                                          <button onClick={() => speak("Ciao")}>🔊</button>
-                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                            <br /><br />
 
-                                                                                                                                                                                                                                                                                                                              <div className="word">
-                                                                                                                                                                                                                                                                                                                                          <span>
-                                                                                                                                                                                                                                                                                                                                                        <b>Buongiorno</b>
-                                                                                                                                                                                                                                                                                                                                                                      <small>Jó napot • buon-dzsor-no</small>
-                                                                                                                                                                                                                                                                                                                                                                                  </span>
-                                                                                                                                                                                                                                                                                                                                                                                              <button onClick={() => speak("Buongiorno")}>🔊</button>
-                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                </section>
+                                                                                                                                                                                                                                                      <button
+                                                                                                                                                                                                                                                                  className="start"
+                                                                                                                                                                                                                                                                              onClick={() => setPage("home")}
+                                                                                                                                                                                                                                                                                        >
+                                                                                                                                                                                                                                                                                                    ⬅ Vissza a főoldalra
+                                                                                                                                                                                                                                                                                                              </button>
+                                                                                                                                                                                                                                                                                                                      </div>
+                                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                );
+                                                                                                                                                                                                                                                                                                                                  }
 
-                                                                                                                                                                                                                                                                                                                                                                                                                        <section className="grid">
-                                                                                                                                                                                                                                                                                                                                                                                                                                  <div className="mini"><h3>📚 Leckék</h3><p>1 / 90 kész</p></div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                            <div className="mini"><h3>🧠 Anki</h3><p>5 kártya</p></div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                      <div className="mini"><h3>🏆 XP</h3><p>25 pont</p></div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div className="mini"><h3>🔥 Sorozat</h3><p>1 nap</p></div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </section>
+                                                                                                                                                                                                                                                                                                                                    return <Home onStartLesson={startLesson} />;
+                                                                                                                                                                                                                                                                                                                                    }
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <section className="card">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <h2>📈 Haladás</h2>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div className="progress"><div className="bar"></div></div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <p className="muted">Cél: használható társalgási olasz 90 nap alatt.</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </section>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </main>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  );
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  }
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  export default App;
+                                                                                                                                                                                                                                                                                                                                    export default App;
