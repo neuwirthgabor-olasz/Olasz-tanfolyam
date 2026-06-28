@@ -6,46 +6,48 @@ function App() {
 
             <header className="hero">
                     <h1>🇮🇹 Gábor Olasz Akadémia</h1>
-                            <p>90 nap alatt használható olasz</p>
+                            <p>Tanulj olaszul minden nap!</p>
                                   </header>
 
-                                        <main>
+                                        <nav className="menu">
+                                                <button>🏠 Főoldal</button>
+                                                        <button>📚 Leckék</button>
+                                                                <button>🧠 Anki</button>
+                                                                        <button>📈 Haladás</button>
+                                                                                <button>⚙️ Beállítások</button>
+                                                                                      </nav>
 
-                                                <div className="card">
-                                                          <h2>📚 Folytatom a tanulást</h2>
-                                                                    <p>1. lecke – Köszönések</p>
-                                                                              <button>Folytatás</button>
-                                                                                      </div>
+                                                                                            <section className="card">
+                                                                                                    <h2>🔥 Mai lecke</h2>
+                                                                                                            <h3>1. lecke – Köszönések</h3>
 
-                                                                                              <div className="grid">
+                                                                                                                    <div className="word">
+                                                                                                                              <span>Ciao</span>
+                                                                                                                                        <button>🔊</button>
+                                                                                                                                                </div>
 
-                                                                                                        <div className="smallCard">
-                                                                                                                    <h3>🧠 Anki</h3>
-                                                                                                                                <p>5 kártya vár</p>
-                                                                                                                                          </div>
+                                                                                                                                                        <div className="word">
+                                                                                                                                                                  <span>Buongiorno</span>
+                                                                                                                                                                            <button>🔊</button>
+                                                                                                                                                                                    </div>
 
-                                                                                                                                                    <div className="smallCard">
-                                                                                                                                                                <h3>🔥 Sorozat</h3>
-                                                                                                                                                                            <p>1 nap</p>
-                                                                                                                                                                                      </div>
+                                                                                                                                                                                            <button className="start">
+                                                                                                                                                                                                      ▶ Lecke indítása
+                                                                                                                                                                                                              </button>
+                                                                                                                                                                                                                    </section>
 
-                                                                                                                                                                                                <div className="smallCard">
-                                                                                                                                                                                                            <h3>🏆 XP</h3>
-                                                                                                                                                                                                                        <p>25 XP</p>
-                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                          <section className="card">
+                                                                                                                                                                                                                                  <h2>📈 Haladás</h2>
 
-                                                                                                                                                                                                                                            <div className="smallCard">
-                                                                                                                                                                                                                                                        <h3>📈 Haladás</h3>
-                                                                                                                                                                                                                                                                    <p>1 / 90</p>
+                                                                                                                                                                                                                                          <div className="progress">
+                                                                                                                                                                                                                                                    <div className="bar"></div>
+                                                                                                                                                                                                                                                            </div>
+
+                                                                                                                                                                                                                                                                    <p>1 / 90 lecke kész</p>
+                                                                                                                                                                                                                                                                          </section>
+
                                                                                                                                                                                                                                                                               </div>
+                                                                                                                                                                                                                                                                                );
+                                                                                                                                                                                                                                                                                }
 
-                                                                                                                                                                                                                                                                                      </div>
-
-                                                                                                                                                                                                                                                                                            </main>
-
-                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                  );
-                                                                                                                                                                                                                                                                                                  }
-
-                                                                                                                                                                                                                                                                                                  export default App;
-                                                                                                                                                                                                                                                                                                  
+                                                                                                                                                                                                                                                                                export default App;
